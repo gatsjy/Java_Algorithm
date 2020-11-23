@@ -7,6 +7,8 @@ import java.util.*;
  */
 
 class Solution {
+
+    // String a,b와 operator을 계산 하는 메서드
     int calOp(String a, String b, String op){
         if(op.equals("*")){
            return Integer.parseInt(a) * Integer.parseInt(b);
@@ -17,10 +19,13 @@ class Solution {
         }
         return -1;
     }
+
     int[] solution(String s, String op){
+
         // 답은 언제나 s.length()-1 개
         int[] res = new int[s.length()-1];
 
+        // substring 한 값을 calOp를 통해 계산 후 return
         for(int i = 1 ; i < s.length(); i++){
             String a = s.substring(0,i);
             String b = s.substring(i);
@@ -42,6 +47,8 @@ class Solution {
         String op = "*";
         Solution solution = new Solution();
         int[] res = solution.solution(s,op);
+
+        // 결과 확인 용
         Arrays.stream(res).forEach(System.out::println);
     }
 }
